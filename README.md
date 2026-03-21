@@ -90,6 +90,28 @@ A small collection of Python scripts and Jupyter notebooks exploring agent patte
 - Ensure `GOOGLE_API_KEY` is set in your environment before running scripts.
 - Some notebooks may require additional packages; install as prompted.
 
+## Resume-Worthy Projects
+
+Below is an honest evaluation of each project in this repository and whether it is strong enough to highlight on a resume.
+
+| Project | Resume-Worthy? | Why |
+|---|---|---|
+| `React_Agent.py` | ✅ **Yes – Highly recommended** | Demonstrates the full **ReAct (Reason + Act) agent pattern**: tool binding, conditional graph edges, streaming output, and proper agent architecture. This shows real-world AI agent design skills. |
+| `memory_Agent.py` | ✅ **Yes** | Shows **multi-turn conversation memory** with a persistent message history and automatic conversation logging. Context-aware agents are a practical and in-demand skill. |
+| `Drafter.py` | ✅ **Yes** | Showcases a **document-editing agent with custom tools** (`update`, `save`) and system prompts – a practical example of tool-augmented agents for real-world document workflows. |
+| `conditional_Agent.ipynb` | ✅ **Yes** | Demonstrates **conditional routing / branching** within a LangGraph – a core pattern for production agent pipelines. |
+| `loop_graph.ipynb` | ✅ **Yes** | Shows **looping / retry patterns** in a graph, useful for self-correcting agents. Worth mentioning as a design pattern. |
+| `multiple.ipynb` | ✅ **Yes** | Covers **multi-agent or parallel flows** – one of the more advanced LangGraph features and highly relevant to real projects. |
+| `sequential.ipynb` | ⚠️ **Optional** | Simple sequential graph; good for learning but not distinctive enough to stand out on its own. Include it only as part of a broader "LangGraph exploration" description. |
+| `Agent_bot.py` | ❌ **No (on its own)** | A very basic stateless chat loop with no memory, no tools, and no branching. Too simple to highlight individually; fold it into a general project description if needed. |
+| `simple.ipynb` | ❌ **No (on its own)** | Minimal "hello world" style LangGraph example. Useful for learning but not resume-worthy by itself. |
+
+### TL;DR – What to put on your resume
+
+> **"Built a collection of AI agents using LangGraph and Google Gemini, including a ReAct agent with custom math tools and streaming, a multi-turn memory-enabled conversational agent, a document-drafting agent with tool use, and advanced graph patterns (conditional routing, looping, and multi-agent flows)."**
+
+The three strongest individual projects to call out by name are **`React_Agent.py`**, **`memory_Agent.py`**, and **`Drafter.py`**.
+
 ## Acknowledgements
 
 - [LangChain](https://github.com/langchain-ai/langchain)

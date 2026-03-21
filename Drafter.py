@@ -1,6 +1,5 @@
 from typing import Annotated, Sequence, TypedDict
-from urllib import response
-from env import load_dotenv
+from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import BaseMessage, SystemMessage , ToolMessage , HumanMessage , AIMessage
 from langchain_core.tools import tool
@@ -13,14 +12,14 @@ load_dotenv()
 document_content =""
 
 class AgentState(TypedDict):
-    message:Annotated[Sequence[BaseMessage], add_messages]
+    messages:Annotated[Sequence[BaseMessage], add_messages]
     
 @tool
 def update(content:str) -> str:
     """Upadate the document with new content"""
     global document_content
     document_content += "\n" + content
-    return print(f"Document updated. Current content:\n{document_content}")
+    return f"Document updated. Current content:\n{document_content}"
 
 @tool
 def save(filename:str) -> str:
@@ -57,16 +56,16 @@ def our_agent(state: AgentState) -> AgentState:
     The current document content is:{document_content}
     """)
     
-    if not state["message"]:
+    if not state["messages"]:
         user_input = " i am ready to help you draft your document. What would you like to do?"
         user_message = HumanMessage(content=user_input)
         
     else:
         user_input = input("\n what could like to with the doucuent?")
         user_message = HumanMessage(content=user_input)
-    all_messages = [system_prompt] + list(state["message"]) + [user_message]
+    all_messages = [system_prompt] + list(state["messages"]) + [user_message]
     
-    reponse = model.invoke(all_messages)
+    response = model.invoke(all_messages)
     
     print(f"\n🤖 AI: {response.content}")
     if hasattr(response, "tool_calls") and response.tool_calls:
